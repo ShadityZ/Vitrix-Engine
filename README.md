@@ -14,15 +14,7 @@ If you want to easily edit the source, it's recommended to clone the git
 repo and install as develop like this. Make sure you have git installed. https://git-scm.com/
 
 ```
-<<<<<<< HEAD
-<<<<<<< HEAD
 git clone https://github.com/ShadityZ/Vitrix-Engine.git
-=======
-git clone https://github.com/pokepetter/vitrix_engine.git
->>>>>>> 9219278 (Big engine stuff)
-=======
-git clone https://github.com/ShadityZ/Vitrix-Engine.git
->>>>>>> 020e588 (Update README.md)
 python setup.py develop
 ```
 
