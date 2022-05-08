@@ -5,15 +5,13 @@ with open("README.md", encoding="UTF-8") as f:
 
 setup(
     name='ursina',
-    description='An easy to use game engine/framework for python.',
+    description='A fork of Ursina Engine designed for Vitrix!',
     long_description=long_desc,
     long_description_content_type="text/markdown",
-    version='4.1.1',
-    url='https://github.com/pokepetter/ursina',
-    author='Petter Amland',
-    author_email='pokepetter@gmail.com',
+    version='4.2.0',
+    url='https://github.com/ShadityZ/Vitrix-Engine',
     license='MIT',
-    keywords='game development',
+    keywords='game development vitrix',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -22,13 +20,8 @@ setup(
         'pillow',
         'screeninfo',
         'pyperclip',
-    ],
-    extras_require={'extras': [
-        'numpy',
         'imageio',
-        'psd-tools3',
         'psutil',
-        ],
-    },
+    ],
     python_requires='>=3.6',
 )
