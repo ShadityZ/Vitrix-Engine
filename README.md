@@ -6,7 +6,7 @@ A port of Ursina Engine especially designed for [Vitrix](https://github.com/Shad
 2) Open cmd/terminal and type:
 
 ```
-pip install git+https://github.com/pokepetter/ursina.git
+pip install git+https://github.com/ShadityZ/Vitrix-Engine.git
 ```
 
 
@@ -14,7 +14,7 @@ If you want to easily edit the source, it's recommended to clone the git
 repo and install as develop like this. Make sure you have git installed. https://git-scm.com/
 
 ```
-git clone https://github.com/pokepetter/ursina.git
+git clone https://github.com/ShadityZ/Vitrix-Engine.git
 python setup.py develop
 ```
 
