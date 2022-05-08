@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
 ursina.egg-info
+ursina/**/__pycache__
 dist
 /build
 webgl
