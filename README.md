@@ -6,11 +6,7 @@ A port of Ursina Engine especially designed for [Vitrix](https://github.com/Shad
 2) Open cmd/terminal and type:
 
 ```
-<<<<<<< HEAD
 pip install git+https://github.com/ShadityZ/Vitrix-Engine.git
-=======
-pip install git+https://github.com/pokepetter/vitrix_engine.git
->>>>>>> 9219278 (Big engine stuff)
 ```
 
 
@@ -19,10 +15,14 @@ repo and install as develop like this. Make sure you have git installed. https:/
 
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 git clone https://github.com/ShadityZ/Vitrix-Engine.git
 =======
 git clone https://github.com/pokepetter/vitrix_engine.git
 >>>>>>> 9219278 (Big engine stuff)
+=======
+git clone https://github.com/ShadityZ/Vitrix-Engine.git
+>>>>>>> 020e588 (Update README.md)
 python setup.py develop
 ```
 
