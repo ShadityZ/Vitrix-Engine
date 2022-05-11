@@ -1,4 +1,4 @@
-from ursina import Shader
+from vitrix_engine import Shader
 
 
 camera_grayscale_shader = Shader(
@@ -21,7 +21,7 @@ geometry='')
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     e = Entity(model='sphere', color=color.orange)

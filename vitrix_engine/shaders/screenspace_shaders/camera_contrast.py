@@ -36,7 +36,7 @@ void fshader(float2 l_texcoord0 : TEXCOORD0,
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     e = Entity(model='sphere')

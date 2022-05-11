@@ -1,6 +1,6 @@
-from ursina import *                    # this will import everything we need from ursina with just one line.
+from vitrix_engine import *                    # this will import everything we need from vitrix_engine with just one line.
 
-class Player(Entity):                   # inherits Entity, ursina's 'god class'
+class Player(Entity):                   # inherits Entity, vitrix_engine's 'god class'
     def __init__(self):
         super().__init__()
         self.model = 'cube'             # finds a 3d model by name

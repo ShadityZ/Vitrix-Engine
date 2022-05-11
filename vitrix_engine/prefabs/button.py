@@ -1,5 +1,5 @@
-from ursina import *
-from ursina.models.procedural.quad import Quad
+from vitrix_engine import *
+from vitrix_engine.models.procedural.quad import Quad
 import textwrap
 
 
@@ -216,7 +216,7 @@ class Button(Entity):
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     b = Button(text='hello world!', color=color.azure, icon='sword', scale=.25, text_origin=(-.5,0))

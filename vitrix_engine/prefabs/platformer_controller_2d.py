@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 
@@ -18,7 +18,7 @@ class PlatformerController2d(Entity):
         # self.walk_animation = None
         # self.jump_animation = None
         # self.idle_animation = Entity(parent=self, model='cube', color=color.gray, origin_y=-.5, scale_z=2)
-        # self.walk_animation = Animation(parent=self, texture='ursina_wink', color=color.red, origin_y=-.5, scale=(2,2), double_sided=True)
+        # self.walk_animation = Animation(parent=self, texture='vitrix_engine_wink', color=color.red, origin_y=-.5, scale=(2,2), double_sided=True)
         # self.model = None
 
         self.walk_speed = 8

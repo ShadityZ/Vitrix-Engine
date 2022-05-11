@@ -1,14 +1,14 @@
 import sys
 
-from ursina import *
-from ursina.entity import Entity
-from ursina.mesh import Mesh
-from ursina.scene import instance as scene
+from vitrix_engine import *
+from vitrix_engine.entity import Entity
+from vitrix_engine.mesh import Mesh
+from vitrix_engine.scene import instance as scene
 from panda3d.core import CollisionTraverser, CollisionNode, CollisionHandlerQueue
 from panda3d.core import CollisionRay, CollisionSegment, CollisionBox
-from ursina.vec3 import Vec3
+from vitrix_engine.vec3 import Vec3
 from math import sqrt, inf
-from ursina.hit_info import HitInfo
+from vitrix_engine.hit_info import HitInfo
 
 
 class Raycaster(Entity):
@@ -108,7 +108,7 @@ class Raycaster(Entity):
         Raycaster._boxcast_box.look_at(origin + direction)
         hit_info = Raycaster._boxcast_box.intersects(traverse_target=traverse_target, ignore=ignore)
         if hit_info.world_point:
-            hit_info.distance = ursinamath.distance(origin, hit_info.world_point)
+            hit_info.distance = vitrix_enginemath.distance(origin, hit_info.world_point)
         else:
             hit_info.distance = distance
 

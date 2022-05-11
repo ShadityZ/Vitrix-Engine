@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 class ExitButton(Button):
     def __init__(self, **kwargs):

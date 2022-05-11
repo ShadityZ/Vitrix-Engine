@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 class NoclipMode:
     def __init__(self, speed=10, require_key='shift'):

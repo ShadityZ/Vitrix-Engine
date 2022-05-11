@@ -1,4 +1,4 @@
-from ursina import *; unlit_shader = Shader(language=Shader.GLSL, vertex = '''#version 130
+from vitrix_engine import *; unlit_shader = Shader(language=Shader.GLSL, vertex = '''#version 130
 
 
 uniform mat4 p3d_ModelViewProjectionMatrix;
@@ -37,11 +37,11 @@ default_input={
 
 
 if __name__ == '__main__':
-    from ursina import *
-    from ursina.prefabs.primitives import *
+    from vitrix_engine import *
+    from vitrix_engine.prefabs.primitives import *
     app = Ursina()
     # window.color=color.black
-    # from ursina.lights import DirectionalLight
+    # from vitrix_engine.lights import DirectionalLight
     # DirectionalLight()
 
     shader = unlit_shader

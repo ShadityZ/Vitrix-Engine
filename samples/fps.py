@@ -1,6 +1,6 @@
-from ursina import *
-from ursina.prefabs.first_person_controller import FirstPersonController
-from ursina.shaders import lit_with_shadows_shader
+from vitrix_engine import *
+from vitrix_engine.prefabs.first_person_controller import FirstPersonController
+from vitrix_engine.shaders import lit_with_shadows_shader
 
 app = Ursina()
 
@@ -38,7 +38,7 @@ def shoot():
         # print('shoot')
         gun.on_cooldown = True
         gun.muzzle_flash.enabled=True
-        from ursina.prefabs.ursfx import ursfx
+        from vitrix_engine.prefabs.ursfx import ursfx
         ursfx([(0.0, 0.0), (0.1, 0.9), (0.15, 0.75), (0.3, 0.14), (0.6, 0.0)], volume=0.5, wave='noise', pitch=random.uniform(-13,-12), pitch_change=-12, speed=3.0)
         invoke(gun.muzzle_flash.disable, delay=.05)
         invoke(setattr, gun, 'on_cooldown', False, delay=.15)
@@ -47,7 +47,7 @@ def shoot():
             mouse.hovered_entity.blink(color.red)
 
 
-from ursina.prefabs.health_bar import HealthBar
+from vitrix_engine.prefabs.health_bar import HealthBar
 
 class Enemy(Entity):
     def __init__(self, **kwargs):

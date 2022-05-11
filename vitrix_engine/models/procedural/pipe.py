@@ -1,5 +1,5 @@
-from ursina import *
-from ursina.duplicate import duplicate
+from vitrix_engine import *
+from vitrix_engine.duplicate import duplicate
 
 
 class Pipe(Mesh):

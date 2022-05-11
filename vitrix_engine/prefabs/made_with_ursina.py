@@ -1,11 +1,11 @@
-from ursina import *
+from vitrix_engine import *
 
 
 
 if __name__ == '__main__':
     app = Ursina()
     window.color=color._10
-    t = Text('''powered by\nursina engine\nʕ •ᴥ•ʔゝ□''', font='unifont.ttf', scale=3, origin=(0,0))
+    t = Text('''powered by\nvitrix_engine engine\nʕ •ᴥ•ʔゝ□''', font='unifont.ttf', scale=3, origin=(0,0))
     t.appear(speed=.05)
     t.fade_out(delay=3, duration=1, curve=curve.linear)
     # Sprite(texture='default_sky', z=1, color=color.dark_gray)

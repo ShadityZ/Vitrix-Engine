@@ -1,4 +1,4 @@
-from ursina import *    #import everything we need with just one line
+from vitrix_engine import *    #import everything we need with just one line
 
 
 class Player(Entity):   # inherits Entity, out base class for most things. Like GameObject in Unity

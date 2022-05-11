@@ -1,4 +1,4 @@
-from ursina import Mesh, Vec3, rotate_point_2d
+from vitrix_engine import Mesh, Vec3, rotate_point_2d
 
 
 class Cone(Mesh):
@@ -27,7 +27,7 @@ class Cone(Mesh):
 
 
 if __name__ == '__main__':
-    from ursina import Ursina, Entity, color, EditorCamera
+    from vitrix_engine import Ursina, Entity, color, EditorCamera
     app = Ursina()
     e = Entity(model=Cone(3), texture='brick')
 

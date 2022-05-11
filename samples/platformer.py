@@ -1,8 +1,8 @@
 import time
 # t = time.time()
 
-from ursina import *
-from ursina.prefabs.platformer_controller_2d import PlatformerController2d
+from vitrix_engine import *
+from vitrix_engine.prefabs.platformer_controller_2d import PlatformerController2d
 
 # window.vsync = False
 window.borderless = False

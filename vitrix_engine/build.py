@@ -59,7 +59,7 @@ compile_to_pyc = True
 for i, arg in enumerate(sys.argv):
     if arg == '--help':
         print(dedent('''
-            package ursina application for windows10.
+            package vitrix_engine application for windows10.
             provided with project folder path, creates a build folder where
             it copies python and project's dependent packages. requires a main.py file.
             copies game scripts and assets into 'build/src' folder.
@@ -193,14 +193,14 @@ if build_engine:
             (python_dest / 'Lib/site-packages/panda3d/' / f.name).mkdir(parents=True, exist_ok=True)
             copytree(f, (python_dest / 'Lib/site-packages/panda3d/' / f.name))
 
-    # def copy_ursina():
-    print('copying ursina')
+    # def copy_vitrix_engine():
+    print('copying vitrix_engine')
     import importlib
-    spec = importlib.util.find_spec('ursina')
-    ursina_path = Path(spec.origin).parent
-    dest = build_folder / 'python/Lib/site-packages/ursina'
+    spec = importlib.util.find_spec('vitrix_engine')
+    vitrix_engine_path = Path(spec.origin).parent
+    dest = build_folder / 'python/Lib/site-packages/vitrix_engine'
     dest.mkdir(parents=True, exist_ok=True)
-    copytree(ursina_path, dest, ignore_filetypes=('samples', 'unused'))
+    copytree(vitrix_engine_path, dest, ignore_filetypes=('samples', 'unused'))
 
 
     # print('copying found modules')
@@ -283,10 +283,10 @@ if build_game:
 # make exe
 # import subprocess
 # import importlib
-# spec = importlib.util.find_spec('ursina')
-# ursina_path = Path(spec.origin).parent
+# spec = importlib.util.find_spec('vitrix_engine')
+# vitrix_engine_path = Path(spec.origin).parent
 # subprocess.call([
-#     f'{ursina_path}\\scripts\\_bat_to_exe.bat',
+#     f'{vitrix_engine_path}\\scripts\\_bat_to_exe.bat',
 #     f'{build_folder}\\{project_name}.bat',
 #     f'\\build\\{project_folder.stem}.exe'
 #     ])

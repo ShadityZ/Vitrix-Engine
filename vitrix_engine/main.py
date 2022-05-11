@@ -3,13 +3,13 @@ import time
 from direct.showbase.ShowBase import ShowBase
 from direct.task.Task import Task
 
-from ursina import application
-from ursina import input_handler
-from ursina.window import instance as window
-from ursina.scene import instance as scene
-from ursina.camera import instance as camera
-from ursina.mouse import instance as mouse
-from ursina.string_utilities import print_info
+from vitrix_engine import application
+from vitrix_engine import input_handler
+from vitrix_engine.window import instance as window
+from vitrix_engine.scene import instance as scene
+from vitrix_engine.camera import instance as camera
+from vitrix_engine.mouse import instance as mouse
+from vitrix_engine.string_utilities import print_info
 from panda3d.core import KeyboardButton
 from panda3d.core import ConfigVariableBool
 
@@ -19,7 +19,7 @@ time.dt = 0
 
 class Ursina(ShowBase):
 
-    def __init__(self, **kwargs): # optional arguments: title, fullscreen, size, forced_aspect_ratio, position, vsync, borderless, show_ursina_splash, render_mode, development_mode, editor_ui_enabled.
+    def __init__(self, **kwargs): # optional arguments: title, fullscreen, size, forced_aspect_ratio, position, vsync, borderless, show_vitrix_engine_splash, render_mode, development_mode, editor_ui_enabled.
         for name in ('size', 'vsync', 'forced_aspect_ratio'):
             if name in kwargs and hasattr(window, name):
                 setattr(window, name, kwargs[name])
@@ -37,7 +37,7 @@ class Ursina(ShowBase):
             pass
 
         window.late_init()
-        for name in ('title', 'fullscreen', 'position', 'show_ursina_splash', 'borderless', 'render_mode'):
+        for name in ('title', 'fullscreen', 'position', 'show_vitrix_engine_splash', 'borderless', 'render_mode'):
             if name in kwargs and hasattr(window, name):
                 setattr(window, name, kwargs[name])
 
@@ -108,7 +108,7 @@ class Ursina(ShowBase):
         mouse.enabled = True
         self.mouse = mouse
 
-        from ursina import gamepad
+        from vitrix_engine import gamepad
 
         scene.set_up()
         self._update_task = taskMgr.add(self._update, "update")
@@ -116,7 +116,7 @@ class Ursina(ShowBase):
         # try to load settings that need to be applied before entity creation
         application.load_settings()
 
-        from ursina import HotReloader
+        from vitrix_engine import HotReloader
         # make sure it's running from a file and not an interactive session.
         application.hot_reloader = HotReloader(__main__.__file__ if hasattr(__main__, '__file__') else 'None')
 
@@ -263,8 +263,8 @@ class Ursina(ShowBase):
 
 
     def run(self, info=True):
-        if window.show_ursina_splash:
-            from ursina.prefabs import ursina_splash
+        if window.show_vitrix_engine_splash:
+            from vitrix_engine.prefabs import vitrix_engine_splash
 
         application.load_settings()
         if info:

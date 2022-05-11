@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 # print('--------', application.asset_folder)
 application.asset_folder = Path(application.asset_folder / 'test')

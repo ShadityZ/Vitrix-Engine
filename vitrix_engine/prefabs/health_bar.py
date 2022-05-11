@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 class HealthBar(Button):
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     health_bar_1 = HealthBar(bar_color=color.lime.tint(-.25), roundness=.5, value=50)
 
     def input(key):
-        if key == '+' or key == '+ hold':
+        if key == '+' or key == '+zzzzz hold':
             health_bar_1.value += 10
         if key == '-' or key == '- hold':
             health_bar_1.value -= 10

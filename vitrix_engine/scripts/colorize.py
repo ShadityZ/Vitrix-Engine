@@ -1,7 +1,7 @@
-from ursina import *
-from ursina import color
+from vitrix_engine import *
+from vitrix_engine import color
 import math
-from ursina.vec3 import Vec3
+from vitrix_engine.vec3 import Vec3
 # import numpy as np
 
 

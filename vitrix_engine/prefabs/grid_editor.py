@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 import pyperclip
 from copy import deepcopy
 import sys
@@ -286,13 +286,13 @@ if __name__ == '__main__':
     '''
     from PIL import Image
     t = Texture(Image.new(mode='RGBA', size=(32,32), color=(0,0,0,1)))
-    from ursina.prefabs.grid_editor import PixelEditor
+    from vitrix_engine.prefabs.grid_editor import PixelEditor
     PixelEditor(texture=load_texture('brick'))
 
     '''
     same as the pixel editor, but with text.
     '''
-    from ursina.prefabs.grid_editor import ASCIIEditor
+    from vitrix_engine.prefabs.grid_editor import ASCIIEditor
     ASCIIEditor()
 
 

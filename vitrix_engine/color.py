@@ -2,7 +2,7 @@ import colorsys
 import random
 import sys
 from math import floor, inf
-from ursina.vec4 import Vec4
+from vitrix_engine.vec4 import Vec4
 
 
 class Color(Vec4):
@@ -165,7 +165,7 @@ for cn in color_names:
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     print(color.brightness(color.blue))

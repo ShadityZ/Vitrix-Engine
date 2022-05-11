@@ -1,4 +1,4 @@
-from ursina import *; matcap_shader = Shader(language=Shader.GLSL, vertex = '''#version 140
+from vitrix_engine import *; matcap_shader = Shader(language=Shader.GLSL, vertex = '''#version 140
 uniform mat4 p3d_ModelViewProjectionMatrix;
 uniform mat4 p3d_ModelMatrix;
 uniform mat4 p3d_ModelViewMatrix;
@@ -44,8 +44,8 @@ void main() {
 
 
 if __name__ == '__main__':
-    from ursina import *
-    from ursina.prefabs.primitives import *
+    from vitrix_engine import *
+    from vitrix_engine.prefabs.primitives import *
     app = Ursina()
     window.color=color.black
 

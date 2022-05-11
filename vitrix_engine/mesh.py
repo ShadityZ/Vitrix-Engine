@@ -3,12 +3,12 @@ from panda3d.core import GeomVertexData, GeomVertexFormat, Geom, GeomVertexWrite
 from panda3d.core import GeomTriangles, GeomTristrips, GeomTrifans
 from panda3d.core import GeomLines, GeomLinestrips, GeomPoints
 from panda3d.core import TexGenAttrib, TextureStage
-from ursina.vec3 import Vec3
-from ursina.scripts.generate_normals import generate_normals
-from ursina.scripts.project_uvs import project_uvs
-from ursina.scripts.colorize import colorize
-from ursina import color
-from ursina import application
+from vitrix_engine.vec3 import Vec3
+from vitrix_engine.scripts.generate_normals import generate_normals
+from vitrix_engine.scripts.project_uvs import project_uvs
+from vitrix_engine.scripts.colorize import colorize
+from vitrix_engine import color
+from vitrix_engine import application
 from textwrap import dedent
 from enum import Enum
 from pathlib import Path
@@ -259,20 +259,20 @@ class Mesh(NodePath):
         if not name and hasattr(self, 'path'):
             name = self.path.stem
             if not '.' in name:
-                name += '.ursinamesh'
+                name += '.vitrix_enginemesh'
 
-        if name.endswith('ursinamesh'):
+        if name.endswith('vitrix_enginemesh'):
             with open(path / name, 'w') as f:
                 # recipe = self.recipe.replace('LVector3f', '')
                 f.write(self.recipe)
-            print('saved .ursinamesh to:', path / name)
+            print('saved .vitrix_enginemesh to:', path / name)
 
         elif name.endswith('.obj'):
-            from ursina.mesh_importer import ursina_mesh_to_obj
+            from vitrix_engine.mesh_importer import vitrix_engine_mesh_to_obj
             import os
             # Remove the filename, else we get 'name.obj.obj'
             name = str(os.path.splitext(name)[0])
-            ursina_mesh_to_obj(self, name, path)
+            vitrix_engine_mesh_to_obj(self, name, path)
 
         elif name.endswith('.bam'):
             success = self.writeBamFile(path / name)
@@ -282,7 +282,7 @@ class Mesh(NodePath):
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
 
     app = Ursina()
 

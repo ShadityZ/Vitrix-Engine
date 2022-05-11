@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 class Animator():
@@ -44,7 +44,7 @@ class Animator():
 if __name__ == '__main__':
     app = Ursina()
     # texture_importer.textureless=True
-    anim = Animation('ursina_wink', loop=True, autoplay=False)
+    anim = Animation('vitrix_engine_wink', loop=True, autoplay=False)
     a = Animator(
         animations = {
             'lol' : Entity(model='cube', color=color.red),

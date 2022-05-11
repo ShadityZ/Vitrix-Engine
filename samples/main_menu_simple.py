@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 # Main Menu Example, or it can be any kind of menu, like Inventory, Quest journal, etc.
 # Created by Doctor

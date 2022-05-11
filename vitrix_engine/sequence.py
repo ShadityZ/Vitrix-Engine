@@ -1,5 +1,5 @@
 import math
-from ursina import application
+from vitrix_engine import application
 import time
 
 
@@ -127,7 +127,7 @@ class Sequence():
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
     e = Entity(model='quad')
     s = Sequence(

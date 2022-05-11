@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 class DebugMenu(Draggable):
     def __init__(self, target, **kwargs):

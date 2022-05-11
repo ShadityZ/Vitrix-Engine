@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 import pyperclip
 # from tree_view import TreeView
 

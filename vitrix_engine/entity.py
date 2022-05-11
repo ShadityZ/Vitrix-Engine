@@ -3,38 +3,38 @@ import importlib
 import glob
 from pathlib import Path
 from panda3d.core import NodePath
-from ursina.vec2 import Vec2
-from ursina.vec3 import Vec3
-from ursina.vec4 import Vec4
+from vitrix_engine.vec2 import Vec2
+from vitrix_engine.vec3 import Vec3
+from vitrix_engine.vec4 import Vec4
 from panda3d.core import Quat
 from panda3d.core import TransparencyAttrib
 from panda3d.core import Shader
 from panda3d.core import TextureStage, TexGenAttrib
 
-from ursina.texture import Texture
+from vitrix_engine.texture import Texture
 from panda3d.core import MovieTexture
 from panda3d.core import TextureStage
 from panda3d.core import CullFaceAttrib
-from ursina import application
-from ursina.collider import *
-from ursina.mesh import Mesh
-from ursina.sequence import Sequence, Func, Wait
-from ursina.ursinamath import lerp
-from ursina import curve
-from ursina.curve import CubicBezier
-from ursina import mesh_importer
-from ursina.mesh_importer import load_model
-from ursina.texture_importer import load_texture
-from ursina.string_utilities import camel_to_snake
+from vitrix_engine import application
+from vitrix_engine.collider import *
+from vitrix_engine.mesh import Mesh
+from vitrix_engine.sequence import Sequence, Func, Wait
+from vitrix_engine.enginemath import lerp
+from vitrix_engine import curve
+from vitrix_engine.curve import CubicBezier
+from vitrix_engine import mesh_importer
+from vitrix_engine.mesh_importer import load_model
+from vitrix_engine.texture_importer import load_texture
+from vitrix_engine.string_utilities import camel_to_snake
 from textwrap import dedent
 from panda3d.core import Shader as Panda3dShader
-from ursina.shader import Shader
-from ursina.string_utilities import print_info, print_warning
+from vitrix_engine.shader import Shader
+from vitrix_engine.string_utilities import print_info, print_warning
 
-from ursina import color
-from ursina.color import Color
+from vitrix_engine import color
+from vitrix_engine.color import Color
 try:
-    from ursina.scene import instance as scene
+    from vitrix_engine.scene import instance as scene
 except:
     pass
 
@@ -678,7 +678,7 @@ class Entity(NodePath):
 
     @property
     def screen_position(self): # get screen position(ui space) from world space.
-        from ursina import camera
+        from vitrix_engine import camera
         p3 = camera.getRelativePoint(self, Vec3.zero())
         full = camera.lens.getProjectionMat().xform(Vec4(*p3, 1))
         recip_full3 = 1 / full[3]
@@ -854,7 +854,7 @@ class Entity(NodePath):
 
 
     def generate_sphere_map(self, size=512, name=f'sphere_map_{len(scene.entities)}'):
-        from ursina import camera
+        from vitrix_engine import camera
         _name = 'textures/' + name + '.jpg'
         org_pos = camera.position
         camera.position = self.position
@@ -867,7 +867,7 @@ class Entity(NodePath):
 
 
     def generate_cube_map(self, size=512, name=f'cube_map_{len(scene.entities)}'):
-        from ursina import camera
+        from vitrix_engine import camera
         _name = 'textures/' + name
         org_pos = camera.position
         camera.position = self.position
@@ -940,7 +940,7 @@ class Entity(NodePath):
 
 
     def combine(self, analyze=False, auto_destroy=True, ignore=[]):
-        from ursina.scripts.combine import combine
+        from vitrix_engine.scripts.combine import combine
 
         self.model = combine(self, analyze, auto_destroy, ignore)
         return self.model
@@ -1088,7 +1088,7 @@ class Entity(NodePath):
             return None
 
         if delay:
-            from ursina.ursinastuff import invoke
+            from vitrix_engine.enginestuff import invoke
             return invoke(self.animate, name, value, duration=duration, curve=curve, loop=loop, resolution=resolution, time_step=time_step, auto_destroy=auto_destroy, delay=delay)
 
         animator_name = name + '_animator'
@@ -1180,13 +1180,13 @@ class Entity(NodePath):
         if isinstance(self.collider, MeshCollider):
             raise Exception('''error: mesh colliders can't intersect other shapes, only primitive shapes can. Mesh colliders can "receive" collisions though.''')
 
-        from ursina.hit_info import HitInfo
+        from vitrix_engine.hit_info import HitInfo
 
         if not self.collision or not self.collider:
             self.hit = HitInfo(hit=False)
             return self.hit
 
-        from ursina import distance
+        from vitrix_engine import distance
         if not hasattr(self, '_picker'):
             from panda3d.core import CollisionTraverser, CollisionNode, CollisionHandlerQueue
             from panda3d.core import CollisionRay, CollisionSegment, CollisionBox
@@ -1254,7 +1254,7 @@ class Entity(NodePath):
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     e = Entity(model='quad', color=color.orange, position=(0,0,1), scale=1.5, rotation=(0,0,45), texture='brick')

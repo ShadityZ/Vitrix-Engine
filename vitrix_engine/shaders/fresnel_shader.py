@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 fresnel_shader = Shader(language=Shader.GLSL,
@@ -67,7 +67,7 @@ default_input = {
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
     # window.color=color.black
 

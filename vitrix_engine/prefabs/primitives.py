@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 model_names = ('quad', 'cube', 'sphere', 'plane')
 

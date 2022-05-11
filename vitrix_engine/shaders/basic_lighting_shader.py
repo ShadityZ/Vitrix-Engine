@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 basic_lighting_shader = Shader(language=Shader.GLSL,
@@ -45,8 +45,8 @@ void main() {
 
 
 if __name__ == '__main__':
-    from ursina import *
-    from ursina.prefabs.primitives import *
+    from vitrix_engine import *
+    from vitrix_engine.prefabs.primitives import *
     app = Ursina()
     window.color=color.black
 

@@ -8,7 +8,7 @@ when you have enough gold you can unlock new nodes to automatically generate gol
 
 
 
-from ursina import *
+from vitrix_engine import *
 
 app = Ursina()
 window.color = color._20

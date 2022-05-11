@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 from enum import Enum
 
 class ContentTypes:

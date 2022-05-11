@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 class DropdownMenuButton(Button):
@@ -65,7 +65,7 @@ class DropdownMenu(DropdownMenuButton):
 
 
 if __name__ == '__main__':
-    from ursina.prefabs.dropdown_menu import DropdownMenu, DropdownMenuButton
+    from vitrix_engine.prefabs.dropdown_menu import DropdownMenu, DropdownMenuButton
 
     app = Ursina()
     # DropdownMenu(text='File')

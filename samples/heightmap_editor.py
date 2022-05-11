@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 app = Ursina(size=(1280, 720))
@@ -30,7 +30,7 @@ centering_offset = Vec2(-.5, -.5)
 
 min_dim = min(w, h)
 
-# from ursina.shaders import lit_with_shadows_shader
+# from vitrix_engine.shaders import lit_with_shadows_shader
 terrain = Entity(model=Mesh(vertices=[], triangles=[], uvs=[], colors=[]), scale=(w,1,h), y=-.01, texture='grass', collider='box')
 terrain.scale *= 5
 
@@ -50,7 +50,7 @@ for z in range(h):
 terrain.model.generate()
 
 terrain.model.height_values =[[0 for x in range(w)] for y in range(h)]
-# from ursina.prefabs.first_person_controller import FirstPersonController
+# from vitrix_engine.prefabs.first_person_controller import FirstPersonController
 
 ec = EditorCamera(rotation_smoothing=2, enabled=1, rotation=(30,30,0))
 # player = FirstPersonController()

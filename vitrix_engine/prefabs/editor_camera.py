@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 class EditorCamera(Entity):
 
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     e = Entity(model=load_model('cube', use_deepcopy=True), color=color.white, collider='box')
     e.model.colorize()
 
-    from ursina.prefabs.first_person_controller import FirstPersonController
+    from vitrix_engine.prefabs.first_person_controller import FirstPersonController
 
     ground = Entity(model='plane', scale=32, texture='white_cube', texture_scale=(32,32), collider='box')
     box = Entity(model='cube', collider='box', texture='white_cube', scale=(10,2,2), position=(2,1,5), color=color.light_gray)

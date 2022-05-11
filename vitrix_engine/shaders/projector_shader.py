@@ -1,4 +1,4 @@
-from ursina import *; projector_shader = Shader(language=Shader.GLSL, vertex = '''
+from vitrix_engine import *; projector_shader = Shader(language=Shader.GLSL, vertex = '''
 #version 140
 uniform mat4 p3d_ModelViewProjectionMatrix;
 uniform mat4 p3d_ModelMatrix;
@@ -55,7 +55,7 @@ default_input = {
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     Entity.default_shader = projector_shader

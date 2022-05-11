@@ -1,5 +1,5 @@
-from ursina import *
-from ursina.prefabs.input_field import InputField
+from vitrix_engine import *
+from vitrix_engine.prefabs.input_field import InputField
 
 
 class Space():

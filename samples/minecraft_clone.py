@@ -10,8 +10,8 @@ You can then use blocks with colliders like in this example in a small area
 around the player so you can interact with the world.
 '''
 
-from ursina import *
-from ursina.prefabs.first_person_controller import FirstPersonController
+from vitrix_engine import *
+from vitrix_engine.prefabs.first_person_controller import FirstPersonController
 
 
 app = Ursina()

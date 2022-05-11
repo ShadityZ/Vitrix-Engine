@@ -1,0 +1,11 @@
+include vitrix_engine/audio/*
+include vitrix_engine/fonts/*
+include vitrix_engine/models/procedural/*
+include vitrix_engine/models/*
+include vitrix_engine/models_compressed/*
+include vitrix_engine/prefabs/*
+include vitrix_engine/scripts/*
+include vitrix_engine/textures/*
+include vitrix_engine/textures/items/*
+include vitrix_engine/shaders/screenspace_shaders/*
+include vitrix_engine/audio/*

@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 class EditorIcon(Draggable):
@@ -155,8 +155,8 @@ class SceneEditor(Entity):
             self.duplicate_dragger.enabled = False
         self.duplicate_dragger.drop = drop
 
-        self.models = [e.stem for e in application.internal_models_compressed_folder.glob('**/*.ursinamesh')]
-        for file_type in ('.bam', '.obj', '.ursinamesh'):
+        self.models = [e.stem for e in application.internal_models_compressed_folder.glob('**/*.vitrix_enginemesh')]
+        for file_type in ('.bam', '.obj', '.vitrix_enginemesh'):
             self.models += [e.stem for e in application.asset_folder.glob(f'**/*.{file_type}') if not 'animation' in e]
         self.model_menu = AssetMenu(button_dict={key : Func(self.set_attr_for_selected, 'model', key) for key in self.models}, scene_editor=self, enabled=False)
 
@@ -405,7 +405,7 @@ class SceneEditor(Entity):
             self.editor_icon_parent.enabled = not self.editor_icon_parent.enabled
 
         if key == 'l':
-            from ursina.shaders import basic_lighting_shader
+            from vitrix_engine.shaders import basic_lighting_shader
             for icon in self.editor_icons:
                 icon.entity.shader = basic_lighting_shader
 
@@ -593,7 +593,7 @@ if __name__ == '__main__':
     # window.vsync = False
     app = Ursina()
     SceneEditor()
-    # from ursina.shaders import fxaa
+    # from vitrix_engine.shaders import fxaa
     # camera.shader = fxaa
     # Sky()
 

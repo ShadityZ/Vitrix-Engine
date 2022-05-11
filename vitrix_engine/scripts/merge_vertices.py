@@ -38,7 +38,7 @@ if __name__ == '__main__':
     print('verts:', (verts), (new_verts))
     print('tris:', (tris), (new_tris))
 
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     e = Entity(model=Mesh(new_verts, new_tris, mode='triangle'))

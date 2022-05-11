@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 from direct.stdpy import thread
 
 
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     window.color = color.white
     info_text = Text('''Press space to start loading textures''', origin=(0,0), color=color.black)
     loading_screen = LoadingWheel(enabled=False)
-    from ursina.prefabs.health_bar import HealthBar
+    from vitrix_engine.prefabs.health_bar import HealthBar
 
     def load_textures():
         textures_to_load = ['brick', 'shore', 'grass', 'heightmap'] * 50

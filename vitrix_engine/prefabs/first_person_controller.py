@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 class FirstPersonController(Entity):
@@ -109,7 +109,7 @@ class FirstPersonController(Entity):
 
 
 if __name__ == '__main__':
-    from ursina.prefabs.first_person_controller import FirstPersonController
+    from vitrix_engine.prefabs.first_person_controller import FirstPersonController
     # window.vsync = False
     app = Ursina()
     # Sky(color=color.gray)
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     slope = Entity(model='cube', collider='box', position=(5,0,10), scale=6, rotation=(80,0,0), texture='brick', texture_scale=(8,8))
     # hill = Entity(model='sphere', position=(20,-10,10), scale=(25,25,25), collider='sphere', color=color.green)
     # hill = Entity(model='sphere', position=(20,-0,10), scale=(25,25,25), collider='mesh', color=color.green)
-    # from ursina.shaders import basic_lighting_shader
+    # from vitrix_engine.shaders import basic_lighting_shader
     # for e in scene.entities:
     #     e.shader = basic_lighting_shader
 

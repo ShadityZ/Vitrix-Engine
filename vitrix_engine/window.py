@@ -2,17 +2,17 @@ import sys
 import os
 from panda3d.core import WindowProperties
 from panda3d.core import loadPrcFileData
-from ursina.vec2 import Vec2
-from ursina import color, application
-from ursina.scene import instance as scene    # for toggling collider visibility
-from ursina.string_utilities import print_info, print_warning
+from vitrix_engine.vec2 import Vec2
+from vitrix_engine import color, application
+from vitrix_engine.scene import instance as scene    # for toggling collider visibility
+from vitrix_engine.string_utilities import print_info, print_warning
 
 
 class Window(WindowProperties):
 
     def __init__(self):
         super().__init__()
-        loadPrcFileData('', 'window-title ursina')
+        loadPrcFileData('', 'window-title vitrix_engine')
         loadPrcFileData('', 'notify-level-util error')
         loadPrcFileData('', 'textures-auto-power-2 #t')
         loadPrcFileData('', 'load-file-type p3assimp')
@@ -29,10 +29,10 @@ class Window(WindowProperties):
         loadPrcFileData('', 'aux-display tinydisplay')
 
         self.vsync = True   # can't be set during play
-        self.show_ursina_splash = False
+        self.show_vitrix_engine_splash = False
 
         self.title = application.asset_folder.name
-        # self.icon = 'textures/ursina.ico'
+        # self.icon = 'textures/vitrix_engine.ico'
 
         if os.name == 'nt':     # windows
             self.borderless = True
@@ -109,7 +109,7 @@ class Window(WindowProperties):
             )
 
     def make_editor_gui(self):     # called by main after setting up camera and application.development_mode
-        from ursina import camera, Entity, Text, Button, ButtonList, Func, Tooltip, held_keys, mouse
+        from vitrix_engine import camera, Entity, Text, Button, ButtonList, Func, Tooltip, held_keys, mouse
         import time
 
         self.editor_ui = Entity(parent=camera.ui, eternal=True, enabled=bool(application.development_mode))
@@ -136,8 +136,8 @@ class Window(WindowProperties):
         self.cog_menu = ButtonList({
             # 'Build' : Func(print, ' '),
             'API Reference' : Func(webbrowser.open, 'https://www.ursinaengine.org/cheat_sheet_dark.html'),
-            # 'Asset Store' : Func(webbrowser.open, 'https://itch.io/tools/tag-ursina'),
-            'ursfx (Sound Effect Maker)' : lambda: exec('from ursina.prefabs import ursfx; ursfx.gui.enabled = True'),
+            # 'Asset Store' : Func(webbrowser.open, 'https://itch.io/tools/tag-vitrix_engine'),
+            'ursfx (Sound Effect Maker)' : lambda: exec('from vitrix_engine.prefabs import ursfx; ursfx.gui.enabled = True'),
             # 'Open Scene Editor' : Func(print, ' '),
             'Change Render Mode <gray>[F10]<default>' : self.next_render_mode,
             'Reset Render Mode <gray>[F9]<default>' : Func(setattr, self, 'render_mode', 'default'),
@@ -170,7 +170,7 @@ class Window(WindowProperties):
         prev_aspect = self.aspect_ratio
         self.aspect_ratio = self.size[0] / self.size[1]
 
-        from ursina import camera, window, application
+        from vitrix_engine import camera, window, application
         value = [int(e) for e in base.win.getSize()]
         camera.set_shader_input('window_size', value)
 
@@ -208,7 +208,7 @@ class Window(WindowProperties):
 
         self.set_size(int(value[0]), int(value[1]))
         self.aspect_ratio = value[0] / value[1]
-        from ursina import camera
+        from vitrix_engine import camera
         camera.set_shader_input('window_size', value)
         base.win.request_properties(self)
 
@@ -260,7 +260,7 @@ class Window(WindowProperties):
                     e.collider.visible = True
 
         elif value == 'normals':
-            from ursina.shaders import normals_shader
+            from vitrix_engine.shaders import normals_shader
             for e in [e for e in scene.entities if e.model and e.alpha]:
                 e.shader = normals_shader
                 e.set_shader_input('transform_matrix', e.getNetTransform().getMat())
@@ -360,13 +360,13 @@ instance = Window()
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     # application.development_mode = False
     app = Ursina()
     # window.forced_aspect_ratio = 1
     # window.vsync = 10
 
-    window.title = 'ursina'
+    window.title = 'vitrix_engine'
     # window.borderless = False
     # window.fullscreen = False
     # window.fps_counter.enabled = False

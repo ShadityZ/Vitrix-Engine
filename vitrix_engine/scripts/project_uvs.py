@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 def project_uvs(model, aspect_ratio=1, direction='forward', regenerate=False):
@@ -23,7 +23,7 @@ def project_uvs(model, aspect_ratio=1, direction='forward', regenerate=False):
 if __name__ == '__main__':
     app = Ursina()
 
-    e = Entity(model='sphere', texture='ursina_logo')
+    e = Entity(model='sphere', texture='vitrix_engine_logo')
     project_uvs(e.model)
     EditorCamera()
 

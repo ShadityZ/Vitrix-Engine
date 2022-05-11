@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 import numpy as np
 
 number_of_particles = 1000   # keep this as low as possible

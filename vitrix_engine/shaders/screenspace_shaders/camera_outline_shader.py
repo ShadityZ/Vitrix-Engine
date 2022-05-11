@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 empty_shader = Shader(
 vertex='''
@@ -44,7 +44,7 @@ geometry='')
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
     Entity(model='cube', texture='white_cube', color=color.red)
     Entity(model='cube', texture='white_cube', color=color.white, x=1.1)

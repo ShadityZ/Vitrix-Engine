@@ -1,9 +1,9 @@
-from ursina import *
+from vitrix_engine import *
 
 class Sky(Entity):
 
     def __init__(self, **kwargs):
-        from ursina.shaders import unlit_shader
+        from vitrix_engine.shaders import unlit_shader
         super().__init__(
             parent = render,
             name = 'sky',

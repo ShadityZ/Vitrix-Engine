@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 texture_blend_shader = Shader(language=Shader.GLSL,
 fragment='''
@@ -57,7 +57,7 @@ default_input = {
 )
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     Texture.default_filtering = 'bilinear'
     app = Ursina(vsync=False)
 

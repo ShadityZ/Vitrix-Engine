@@ -1,5 +1,5 @@
-from ursina.entity import Entity
-from ursina.ursinamath import distance
+from vitrix_engine.entity import Entity
+from vitrix_engine.enginemath import distance
 import time
 
 # TODO:
@@ -55,7 +55,7 @@ class Trigger(Entity):
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     player = Entity(model='cube', color=color.azure, scale=.05)

@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 from copy import copy, deepcopy
 
 

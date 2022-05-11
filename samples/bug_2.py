@@ -1,6 +1,6 @@
 from time import perf_counter
 t = perf_counter()
-from ursina import *
+from vitrix_engine import *
 
 app = Ursina()
 

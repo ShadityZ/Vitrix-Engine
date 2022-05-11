@@ -1,5 +1,5 @@
-from ursina import *
-from ursina.shaders import lit_with_shadows_shader
+from vitrix_engine import *
+from vitrix_engine.shaders import lit_with_shadows_shader
 
 
 class LevelEditor(Entity):

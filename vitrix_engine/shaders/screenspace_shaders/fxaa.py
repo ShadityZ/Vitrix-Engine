@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 fxaa_shader = Shader(language=Shader.GLSL,
 fragment='''

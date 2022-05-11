@@ -1,16 +1,16 @@
 import sys
-from ursina.entity import Entity
+from vitrix_engine.entity import Entity
 from panda3d.core import PerspectiveLens, OrthographicLens, LensNode, NodePath
 from panda3d.core import Camera as PandaCamera
 from panda3d.core import Texture as PandaTexture
 from direct.filter.FilterManager import FilterManager
-from ursina import application
-from ursina.scene import instance as scene
-from ursina.window import instance as window
-from ursina import color
-from ursina.texture import Texture
-from ursina.shader import Shader
-from ursina.string_utilities import print_info
+from vitrix_engine import application
+from vitrix_engine.scene import instance as scene
+from vitrix_engine.window import instance as window
+from vitrix_engine import color
+from vitrix_engine.texture import Texture
+from vitrix_engine.shader import Shader
+from vitrix_engine.string_utilities import print_info
 
 
 class Camera(Entity):
@@ -201,7 +201,7 @@ instance = Camera()
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     window.borderless = False
     app = Ursina()
 
@@ -223,9 +223,9 @@ if __name__ == '__main__':
     e.position = (0, 0, 40)
 
     EditorCamera()
-    # from ursina import *
+    # from vitrix_engine import *
     # Button(text='test button')
-    from ursina.shaders import camera_grayscale_shader
+    from vitrix_engine.shaders import camera_grayscale_shader
     camera.shader = camera_grayscale_shader
 
     # def update():

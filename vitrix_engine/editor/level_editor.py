@@ -1,5 +1,5 @@
-from ursina import *
-from ursina.shaders import lit_with_shadows_shader, unlit_shader
+from vitrix_engine import *
+from vitrix_engine.shaders import lit_with_shadows_shader, unlit_shader
 from time import perf_counter
 
 class Scene(Entity):
@@ -329,14 +329,14 @@ if not load_model('arrow', application.internal_models_compressed_folder):
     Entity(parent=p, model='cube', scale=(1,.05,.05))
     Entity(parent=p, model=Cone(4, direction=(1,0,0)), x=.5, scale=.2)
     arrow_model = p.combine()
-    arrow_model.save('arrow.ursinamesh', path=application.internal_models_compressed_folder)
+    arrow_model.save('arrow.vitrix_enginemesh', path=application.internal_models_compressed_folder)
 
 if not load_model('scale_gizmo', application.internal_models_compressed_folder):
     p = Entity(enabled=False)
     Entity(parent=p, model='cube', scale=(.05,.05,1))
     Entity(parent=p, model='cube', z=.5, scale=.2)
     arrow_model = p.combine()
-    arrow_model.save('scale_gizmo.ursinamesh', path=application.internal_models_compressed_folder)
+    arrow_model.save('scale_gizmo.vitrix_enginemesh', path=application.internal_models_compressed_folder)
 
 
 class GizmoArrow(Draggable):
@@ -1320,9 +1320,9 @@ class ModelMenu(Entity):
         self.button_list = None     # gets created on self.open()
 
     def open(self):
-        # self.model_names = [e.stem for e in application.internal_models_compressed_folder.glob('**/*.ursinamesh')]
+        # self.model_names = [e.stem for e in application.internal_models_compressed_folder.glob('**/*.vitrix_enginemesh')]
         self.model_names = ['cube', 'sphere', 'plane', 'test', 'test_2', 'test_3', 'test_4', 'test_5', 'another_test', 'player_idle']
-        # for file_type in ('.bam', '.obj', '.ursinamesh'):
+        # for file_type in ('.bam', '.obj', '.vitrix_enginemesh'):
         #     self.model_names += [e.stem for e in application.asset_folder.glob(f'**/*{file_type}') if not 'animation' in e.stem]
 
         model_dict = {name : Func(self.set_models_for_selection, name) for name in self.model_names}
@@ -1771,7 +1771,7 @@ class SunHandler(Entity):
                 # e.shader = unlit_shader
                 e.unlit = not e.unlit
 
-from ursina.prefabs.radial_menu import RadialMenu
+from vitrix_engine.prefabs.radial_menu import RadialMenu
 class RightClickMenu(Entity):
     def __init__(self):
         super().__init__()

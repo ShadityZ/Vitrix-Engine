@@ -1,7 +1,7 @@
 from panda3d.core import CollisionNode, CollisionBox, CollisionSphere, CollisionPolygon
 from panda3d.core import NodePath
-from ursina.vec3 import Vec3
-from ursina.mesh import Mesh
+from vitrix_engine.vec3 import Vec3
+from vitrix_engine.mesh import Mesh
 
 
 class Collider(NodePath):
@@ -143,7 +143,7 @@ class MeshCollider(Collider):
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
 
     e = Entity(model='sphere', x=2)

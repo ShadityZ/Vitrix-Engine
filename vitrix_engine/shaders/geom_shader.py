@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 point_shader = Shader(language=Shader.GLSL,
 vertex = '''
@@ -63,8 +63,8 @@ void main() {
 
 
 if __name__ == '__main__':
-    from ursina import *
-    from ursina.prefabs.primitives import *
+    from vitrix_engine import *
+    from vitrix_engine.prefabs.primitives import *
     app = Ursina(vsync = False)
     window.color=color.black
 

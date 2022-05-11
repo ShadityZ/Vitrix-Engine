@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 app = Ursina()
@@ -9,7 +9,7 @@ e.model.save('loddefjord_terrain')
 scene.fog_color = color.gray
 scene.fog_density = .01
 
-from ursina.prefabs.first_person_controller import FirstPersonController
+from vitrix_engine.prefabs.first_person_controller import FirstPersonController
 # fpc = FirstPersonController(speed=10)
 EditorCamera()
 window.exit_button.visible = False
@@ -18,7 +18,7 @@ mouse.visible = False
 
 
 
-# from ursina .shaders import camera_vertical_blur_shader
+# from vitrix_engine .shaders import camera_vertical_blur_shader
 # camera.shader = camera_vertical_blur_shader
 # camera.set_shader_input('blur_size', .0)
 #

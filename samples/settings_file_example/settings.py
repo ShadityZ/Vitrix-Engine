@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 window.fullscreen = True
 window.color=color.black

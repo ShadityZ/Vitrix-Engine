@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 
 class Animation(Sprite):
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     You can also load a .gif by including the file type: Animation('image.gif')
     '''
 
-    a = Animation('ursina_wink')
+    a = Animation('vitrix_engine_wink')
     destroy(a)
 # Animation('city_in_desert_valley_water.gif')
 

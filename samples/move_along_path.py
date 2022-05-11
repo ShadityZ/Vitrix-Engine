@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 
 app = Ursina()
 points = LoopingList([Draggable(parent=scene, model='circle', scale=.25, x=-4+(i*1)) for i in range(6)])

@@ -1,4 +1,4 @@
-from ursina import *; noise_fog_shader = Shader(language=Shader.GLSL, fragment='''
+from vitrix_engine import *; noise_fog_shader = Shader(language=Shader.GLSL, fragment='''
 #version 130
 
 uniform vec4 p3d_ColorScale;
@@ -32,7 +32,7 @@ default_input = {
 
 
 if __name__ == '__main__':
-    from ursina import *
+    from vitrix_engine import *
     app = Ursina()
     window.color=color.black
 

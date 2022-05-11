@@ -1,4 +1,4 @@
-from ursina import *
+from vitrix_engine import *
 from panda3d.core import InputDevice
 
 if __name__ == '__main__':
