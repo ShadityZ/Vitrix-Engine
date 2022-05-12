@@ -17,6 +17,7 @@ setup(
     install_requires=[
         'panda3d',
         'panda3d-gltf',
+        'panda3d-simplepbr',
         'pillow',
         'screeninfo',
         'pyperclip',
