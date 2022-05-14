@@ -1,20 +1,22 @@
-import os
-import glob
-import platform
-import subprocess
+import os, os.path, glob, platform, subprocess
 from copy import copy, deepcopy
 from pathlib import Path
-from vitrix_engine.mesh import Mesh
-from vitrix_engine import application
+from ursina.mesh import Mesh
+from ursina import application
 from panda3d.core import CullFaceAttrib
 from time import perf_counter
-from vitrix_engine.string_utilities import print_info, print_warning
-from vitrix_engine import color
+from ursina.string_utilities import print_info, print_warning
+from ursina import color
 
 imported_meshes = dict()
 blender_scenes = dict()
 
-def load_model(name, path=application.asset_folder, file_types=('.bam', '.vitrix_enginemesh', '.obj', '.glb', '.gltf', '.blend'), use_deepcopy=False):
+
+def load_mtl(name: str):
+    pass
+
+
+def load_model(name: str, path=application.asset_folder, file_types=('.bam', '.ursinamesh', '.obj', '.glb', '.gltf', '.blend'), use_deepcopy=False):
     if not isinstance(name, str):
         raise TypeError(f"Argument save must be of type str, not {type(str)}")
 
@@ -22,6 +24,9 @@ def load_model(name, path=application.asset_folder, file_types=('.bam', '.vitrix
         full_name = name
         name = full_name.split('.')[0]
         file_types = ('.' + full_name.split('.',1)[1],)
+        # if os.path.isfile(f"{name}.mtl"):
+        #     load_mtl(f"{name}.mtl")
+
 
     if name in imported_meshes:
         # print('load cached model', name)
@@ -44,7 +49,7 @@ def load_model(name, path=application.asset_folder, file_types=('.bam', '.vitrix
                 print_info('loading bam')
                 return loader.loadModel(filename)
 
-            if filetype == '.vitrix_enginemesh':
+            if filetype == '.ursinamesh':
                 try:
                     with open(filename) as f:
                         m = eval(f.read())
@@ -53,14 +58,14 @@ def load_model(name, path=application.asset_folder, file_types=('.bam', '.vitrix
                         imported_meshes[name] = m
                         return m
                 except:
-                    print_warning('invalid vitrix_enginemesh file:', filename)
+                    print_warning('invalid ursinamesh file:', filename)
 
 
             if filetype == '.obj':
                 # print('found obj', filename)
                 # m = loader.loadModel(filename)
                 # m.setAttrib(CullFaceAttrib.make(CullFaceAttrib.MCullCounterClockwise))
-                m = obj_to_vitrix_enginemesh(path=path, name=name, return_mesh=True)
+                m = obj_to_ursinamesh(path=path, name=name, return_mesh=True)
                 m.path = filename
                 m.name = name
                 imported_meshes[name] = m
@@ -69,7 +74,7 @@ def load_model(name, path=application.asset_folder, file_types=('.bam', '.vitrix
             elif filetype == '.blend':
                 print_info('found blend file:', filename)
                 if compress_models(path=path, name=name):
-                    # obj_to_vitrix_enginemesh(name=name)
+                    # obj_to_ursinamesh(name=name)
                     return load_model(name, path)
 
             else:
@@ -133,14 +138,14 @@ def load_blender_scene(name, path=application.asset_folder, load=True, reload=Fa
         blend_file = blend_file[0]
         print_info('loading blender scene:', blend_file, '-->', out_file_path)
         blender = get_blender(blend_file)
-        script_path = application.internal_scripts_folder / '_blender_scene_to_vitrix_engine.py'
+        script_path = application.internal_scripts_folder / '_blender_scene_to_ursina.py'
 
         args = [
             get_blender(blend_file),
             blend_file,
             '--background',
             '--python',
-            application.internal_scripts_folder / '_blender_scene_to_vitrix_engine.py',
+            application.internal_scripts_folder / '_blender_scene_to_ursina.py',
             out_file_path,
             '--skip_hidden' if skip_hidden else '',
             '--models_only' if models_only else '',
@@ -209,7 +214,7 @@ def compress_models(path=None, outpath=application.compressed_models_folder, nam
     return exported
 
 
-def obj_to_vitrix_enginemesh(
+def obj_to_ursinamesh(
     path=application.compressed_models_folder,
     outpath=application.compressed_models_folder,
     name='*',
@@ -365,14 +370,14 @@ def obj_to_vitrix_enginemesh(
         if not save_to_file:
             return meshstring
 
-        outfilepath = outpath / (os.path.splitext(f)[0] + '.vitrix_enginemesh')
+        outfilepath = outpath / (os.path.splitext(f)[0] + '.ursinamesh')
         with open(outfilepath, 'w') as file:
             file.write(meshstring)
 
         if delete_obj:
             os.remove(filepath)
 
-        print_info('saved vitrix_enginemesh to:', outfilepath)
+        print_info('saved ursinamesh to:', outfilepath)
 
 # faster, but does not apply modifiers
 def compress_models_fast(model_name=None, write_to_disk=False):
@@ -403,9 +408,9 @@ def compress_models_fast(model_name=None, write_to_disk=False):
 
                 file_content = 'Mesh(' + str(verts)
 
-                file_name = ''.join([f.split('.')[0], '.vitrix_enginemesh'])
+                file_name = ''.join([f.split('.')[0], '.ursinamesh'])
                 if number_of_objects > 1:
-                    file_name = ''.join([f.split('.')[0], '_', object_name, '.vitrix_enginemesh'])
+                    file_name = ''.join([f.split('.')[0], '_', object_name, '.ursinamesh'])
                 file_path = os.path.join(application.compressed_models_folder, file_name)
                 print(file_path)
 
@@ -430,8 +435,8 @@ def compress_models_fast(model_name=None, write_to_disk=False):
 
                 return file_content
 
-def vitrix_engine_mesh_to_obj(mesh, name='', out_path=application.compressed_models_folder, max_decimals=3):
-    from vitrix_engine.string_utilities import camel_to_snake
+def ursina_mesh_to_obj(mesh, name='', out_path=application.compressed_models_folder, max_decimals=3):
+    from ursina.string_utilities import camel_to_snake
 
     if not name:
         name = camel_to_snake(mesh.__class__.__name__)
@@ -488,7 +493,7 @@ def vitrix_engine_mesh_to_obj(mesh, name='', out_path=application.compressed_mod
 
 def compress_internal():
     compress_models(application.internal_models_folder)
-    obj_to_vitrix_enginemesh(
+    obj_to_ursinamesh(
         application.internal_models_compressed_folder,
         application.internal_models_compressed_folder,
         return_mesh=False, save_to_file=True, delete_obj=True
@@ -497,11 +502,11 @@ def compress_internal():
 
 if __name__ == '__main__':
     # compress_internal()
-    from vitrix_engine import *
+    from ursina import *
     app = Ursina()
     # print('imported_meshes:\n', imported_meshes)
     # Entity(model='quad').model.save('quad.bam')
-    # m = obj_to_vitrix_enginemesh(path=application.asset_folder.parent / 'samples', name='procedural_rock_0')
+    # m = obj_to_ursinamesh(path=application.asset_folder.parent / 'samples', name='procedural_rock_0')
     # Entity(model=m)
     # EditorCamera()
 
@@ -509,7 +514,7 @@ if __name__ == '__main__':
     # application.asset_folder = application.asset_folder.parent / 'samples'
     # application.asset_folder = Path(r'C:\\Users\\Petter\\Downloads\\')
     # Entity(model='c1a0')
-    # from vitrix_engine.shaders import lit_with_shadows_shader
+    # from ursina.shaders import lit_with_shadows_shader
     # Entity.default_shader = lit_with_shadows_shader
     # Entity(model='race')
     # Entity(model='ambulance', x=1.5)
@@ -533,7 +538,7 @@ if __name__ == '__main__':
     #
     #
     # blender_scene.Plane_002.collider = 'mesh'
-    # from vitrix_engine.prefabs.first_person_controller import FirstPersonController
+    # from ursina.prefabs.first_person_controller import FirstPersonController
     # player = FirstPersonController()
 
     # def input(key):
@@ -553,4 +558,4 @@ if __name__ == '__main__':
 
     app.run()
     # e = Entity(model=Cylinder(16))
-    # vitrix_engine_mesh_to_obj(e.model, name='quad_export_test')
+    # ursina_mesh_to_obj(e.model, name='quad_export_test')
