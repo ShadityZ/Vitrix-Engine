@@ -13,7 +13,6 @@ class InputField(Button):
             scale=(.5, Text.size * 2 * max_lines),
             highlight_scale = 1,
             pressed_scale = 1,
-            highlight_color = color.black,
             **kwargs
             )
         for key, value in kwargs.items():
