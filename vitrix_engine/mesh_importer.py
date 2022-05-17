@@ -12,10 +12,6 @@ imported_meshes = dict()
 blender_scenes = dict()
 
 
-def load_mtl(name: str):
-    pass
-
-
 def load_model(name: str, path=application.asset_folder, file_types=('.bam', '.ursinamesh', '.obj', '.glb', '.gltf', '.blend'), use_deepcopy=False):
     if not isinstance(name, str):
         raise TypeError(f"Argument save must be of type str, not {type(str)}")
@@ -24,8 +20,6 @@ def load_model(name: str, path=application.asset_folder, file_types=('.bam', '.u
         full_name = name
         name = full_name.split('.')[0]
         file_types = ('.' + full_name.split('.',1)[1],)
-        # if os.path.isfile(f"{name}.mtl"):
-        #     load_mtl(f"{name}.mtl")
 
 
     if name in imported_meshes:
