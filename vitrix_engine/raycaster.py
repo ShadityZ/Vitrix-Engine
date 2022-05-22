@@ -1,6 +1,7 @@
 import sys
 
 from vitrix_engine import *
+from vitrix_engine import enginemath
 from vitrix_engine.entity import Entity
 from vitrix_engine.mesh import Mesh
 from vitrix_engine.scene import instance as scene
@@ -108,7 +109,7 @@ class Raycaster(Entity):
         Raycaster._boxcast_box.look_at(origin + direction)
         hit_info = Raycaster._boxcast_box.intersects(traverse_target=traverse_target, ignore=ignore)
         if hit_info.world_point:
-            hit_info.distance = vitrix_enginemath.distance(origin, hit_info.world_point)
+            hit_info.distance = enginemath.distance(origin, hit_info.world_point)
         else:
             hit_info.distance = distance
 
