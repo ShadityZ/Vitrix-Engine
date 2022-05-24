@@ -8,7 +8,7 @@ setup(
     description='A fork of Ursina Engine designed for Vitrix!',
     long_description=long_desc,
     long_description_content_type="text/markdown",
-    version='4.2.0',
+    version='1.1',
     url='https://github.com/ShadityZ/Vitrix-Engine',
     license='MIT',
     keywords='game development vitrix',
