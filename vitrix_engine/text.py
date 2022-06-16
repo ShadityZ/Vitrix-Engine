@@ -24,6 +24,7 @@ class Text(Entity):
     def __init__(self, text='', start_tag=start_tag, end_tag=end_tag, ignore=True, **kwargs):
         super().__init__(ignore=ignore)
         self.size = Text.size
+        self.shader = None
         self.parent = camera.ui
 
         self.setColorScaleOff()
