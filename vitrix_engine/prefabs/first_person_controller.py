@@ -18,6 +18,7 @@ class FirstPersonController(Entity):
 
         self.gravity = 1
         self.grounded = False
+        self.paused = False
         self.jump_height = 2
         self.jump_up_duration = .5
         self.fall_after = .35 # will interrupt jump up
@@ -35,15 +36,16 @@ class FirstPersonController(Entity):
 
 
     def update(self):
-        self.rotation_y += mouse.velocity[0] * self.mouse_sensitivity[1]
+        if not self.paused:
+            self.rotation_y += mouse.velocity[0] * self.mouse_sensitivity[1]
 
-        self.camera_pivot.rotation_x -= mouse.velocity[1] * self.mouse_sensitivity[0]
-        self.camera_pivot.rotation_x= clamp(self.camera_pivot.rotation_x, -90, 90)
+            self.camera_pivot.rotation_x -= mouse.velocity[1] * self.mouse_sensitivity[0]
+            self.camera_pivot.rotation_x= clamp(self.camera_pivot.rotation_x, -90, 90)
 
-        self.direction = Vec3(
-            self.forward * (held_keys['w'] - held_keys['s'])
-            + self.right * (held_keys['d'] - held_keys['a'])
-            ).normalized()
+            self.direction = Vec3(
+                self.forward * (held_keys['w'] - held_keys['s'])
+                + self.right * (held_keys['d'] - held_keys['a'])
+                ).normalized()
 
         feet_ray = raycast(self.position+Vec3(0,0.5,0), self.direction, ignore=(self,), distance=.5, debug=False)
         head_ray = raycast(self.position+Vec3(0,self.height-.1,0), self.direction, ignore=(self,), distance=.5, debug=False)
